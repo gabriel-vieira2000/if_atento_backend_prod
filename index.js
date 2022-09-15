@@ -99,7 +99,7 @@ app.get('/ocorrencias', async (req,res) => {
 app.get('/ocorrencias/:chave', async (req,res) => {
   const chave = req.params.chave
   const item = await db.collection("ocorrencias").get(chave)
-  const itemMod = JSON.stringify(item,null,2))
+  const itemMod = JSON.stringify(item,null,2)
   const itemResposta = [itemMod.key,itemMod.props.nomeSetor,itemMod.props.detalhes]
   res.json(itemResposta).end()
 })
