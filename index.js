@@ -71,7 +71,7 @@ app.post('/', async (req,res) => {
   console.log(nomeSetor)
   console.log(req.body)
   
-  const chave = Math.random().toString()
+  const chave = (Math.random()*10).toString()
   const col = "ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
@@ -93,6 +93,12 @@ app.get('/p', (req,res) => {
 app.get('/ocorrencias', async (req,res) => {
   const items = await db.collection("ocorrencias").list()
   console.log(JSON.stringify(items, null, 2))
+  res.json(items).end()
+})
+
+app.get('/ocorrencias/:chave', async (req,res) => {
+  const chave = req.params.chave
+  const item await db.collection("ocorrencias").get(chave)
   res.json(items).end()
 })
 
