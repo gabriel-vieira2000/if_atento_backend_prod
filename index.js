@@ -69,7 +69,12 @@ app.post('/', (req,res) => {
   let nomeSetor = req.body.nomeSetor
   console.log(nomeSetor)
   console.log(req.body)
-  res.send("Entrou na rota de POST")
+  
+  const chave = 1
+  const col = "Ocorrencias"
+  const item = await db.collection(col).set(chave, req.body)
+  console.log(JSON.stringify(item, null, 2))
+  res.json(item).end()
 })
 
 app.get('/p', (req,res) => {
