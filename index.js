@@ -71,6 +71,10 @@ app.post('/', (req,res) => {
   res.send("Entrou na rota de POST")
 })
 
+app.get('/p', (req,res) => {
+  res.send("Entrou na segunda rota")
+})
+
 // Catch all handler for all other request.
 app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
