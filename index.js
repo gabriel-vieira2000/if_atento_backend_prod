@@ -62,7 +62,7 @@ app.get('/:col', async (req, res) => {
 })
 
 app.get('/', (req,res) => {
-  const chave = Math.random().toString
+  const chave = Math.random().toString()
   res.send(`Entrou na rota correta! ${chave}`)
 })
 
