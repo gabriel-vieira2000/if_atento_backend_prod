@@ -62,7 +62,7 @@ app.get('/:col', async (req, res) => {
 })
 */
 
-app.get('/patologias', (req,res) => {
+app.get('/', (req,res) => {
   res.send("Entrou na rota correta!")
 })
 
