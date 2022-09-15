@@ -65,7 +65,7 @@ app.get('/', (req,res) => {
   res.send("Entrou na rota correta!")
 })
 
-app.post('/', (req,res) => {
+app.post('/', async (req,res) => {
   let nomeSetor = req.body.nomeSetor
   console.log(nomeSetor)
   console.log(req.body)
