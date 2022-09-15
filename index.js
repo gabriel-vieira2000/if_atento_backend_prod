@@ -60,11 +60,6 @@ app.get('/:col', async (req, res) => {
   res.json(items).end()
 })
 
-app.post('/patologias', (req,res) => {
-  console.log(req.body)
-  res.send("Entrou nessa rota!")
-}
-
 // Catch all handler for all other request.
 app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
