@@ -90,8 +90,8 @@ app.get('/p', (req,res) => {
   res.send("Entrou na segunda rota")
 })
 
-app.get('/o', async (req,res) => {
-  const items = await db.collection("Ocorrencias").list()
+app.get('/ocorrencias', async (req,res) => {
+  const items = await db.collection("ocorrencias").list()
   console.log(JSON.stringify(items, null, 2))
   res.json(items).end()
 })
