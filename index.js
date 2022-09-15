@@ -60,7 +60,6 @@ app.get('/:col', async (req, res) => {
   console.log(JSON.stringify(items, null, 2))
   res.json(items).end()
 })
-*/
 
 app.get('/', (req,res) => {
   res.send("Entrou na rota correta!")
