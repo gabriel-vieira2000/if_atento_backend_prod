@@ -62,7 +62,8 @@ app.get('/:col', async (req, res) => {
 })
 
 app.get('/', (req,res) => {
-  res.send("Entrou na rota correta!")
+  const chave = Math.random().toString
+  res.send(`Entrou na rota correta! ${chave}`)
 })
 
 app.post('/', async (req,res) => {
@@ -90,7 +91,7 @@ app.get('/p', (req,res) => {
 })
 
 app.get('/o', async (req,res) => {
-  const items = await db.collection("ocorrencias").list()
+  const items = await db.collection("Ocorrencias").list()
   console.log(JSON.stringify(items, null, 2))
   res.json(items).end()
 })
