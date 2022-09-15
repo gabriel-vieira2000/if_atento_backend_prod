@@ -98,7 +98,7 @@ app.get('/ocorrencias', async (req,res) => {
 
 app.get('/ocorrencias/:chave', async (req,res) => {
   const chave = req.params.chave
-  const item await db.collection("ocorrencias").get(chave)
+  const item = await db.collection("ocorrencias").get(chave)
   res.json(items).end()
 })
 
