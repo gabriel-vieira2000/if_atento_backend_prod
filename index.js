@@ -66,12 +66,12 @@ app.get('/', (req,res) => {
   res.send(`Entrou na rota correta! ${chave}`)
 })
 
-app.post('/', async (req,res) => {
+app.post('/ocorrencias', async (req,res) => {
   let nomeSetor = req.body.nomeSetor
   console.log(nomeSetor)
   console.log(req.body)
   
-  const chave = (Math.random()*10).toString()
+  const chave = Math.floor(Math.random()*10000).toString()
   const col = "ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
