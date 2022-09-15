@@ -65,6 +65,10 @@ app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
 })
 
+app.post('/patologias', (req,res) => {
+  res.send(req.params)
+}
+
 // Start the server
 const port = process.env.PORT || 3000
 app.listen(port, () => {
