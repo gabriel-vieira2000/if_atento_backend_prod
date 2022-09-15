@@ -70,7 +70,7 @@ app.post('/', async (req,res) => {
   console.log(nomeSetor)
   console.log(req.body)
   
-  const chave = 1
+  const chave = "1"
   const col = "Ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
