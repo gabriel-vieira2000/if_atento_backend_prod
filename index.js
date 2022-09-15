@@ -70,23 +70,29 @@ app.post('/', async (req,res) => {
   console.log(nomeSetor)
   console.log(req.body)
   
-  const chave = "1"
+  const chave = Math.random().toString()
   const col = "ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
   res.json(item).end()
 })
 
-app.delete('/', async (req,res) => {  
-  const chave = "1"
-  const col = "Ocorrencias"
-  const item = await db.collection(col).delete(chave, req.body)
+app.delete('/:chave', async (req,res) => {  
+  const chave = req.params.chave
+  const col = "ocorrencias"
+  const item = await db.collection("ocorrencias").delete(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
   res.json(item).end()
 })
 
 app.get('/p', (req,res) => {
   res.send("Entrou na segunda rota")
+})
+
+app.get('/o', (req,res) => {
+  const items = await db.collection("ocorrencias").list()
+  console.log(JSON.stringify(items, null, 2))
+  res.json(items).end()
 })
 
 // Catch all handler for all other request.
