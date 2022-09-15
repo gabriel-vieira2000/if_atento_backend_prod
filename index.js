@@ -71,8 +71,16 @@ app.post('/', async (req,res) => {
   console.log(req.body)
   
   const chave = "1"
-  const col = "Ocorrencias"
+  const col = "ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
+  console.log(JSON.stringify(item, null, 2))
+  res.json(item).end()
+})
+
+app.delete('/', async (req,res) => {  
+  const chave = "1"
+  const col = "Ocorrencias"
+  const item = await db.collection(col).delete(chave, req.body)
   console.log(JSON.stringify(item, null, 2))
   res.json(item).end()
 })
