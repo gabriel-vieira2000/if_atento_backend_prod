@@ -67,6 +67,8 @@ app.get('/', (req,res) => {
 })
 
 app.post('/', (req,res) => {
+  let nomeSetor = req.body.nomeSetor
+  console.log(nomeSetor)
   console.log(req.body)
   res.send("Entrou na rota de POST")
 })
