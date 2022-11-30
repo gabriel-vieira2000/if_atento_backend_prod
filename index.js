@@ -104,6 +104,11 @@ app.get('/ocorrencias/:chave', async (req,res) => {
   res.json(itemResposta).end()
 })
 
+app.get('/ocorrencias/:chave/edit', async (req, res) => {
+  await db.collection("ocorrencias").item(chave).set({status:"Não resolvido"})
+  res.send("Status da Ocorrência alterado!")
+})
+
 // Catch all handler for all other request.
 app.use('*', (req, res) => {
   res.json({ msg: 'no route handler found' }).end()
