@@ -70,7 +70,6 @@ app.post('/ocorrencias', async (req,res) => {
   let nomeSetor = req.body.nomeSetor
   console.log(nomeSetor)
   console.log(req.body)
-  
   const chave = Math.floor(Math.random()*10000).toString()
   const col = "ocorrencias"
   const item = await db.collection(col).set(chave, req.body)
