@@ -103,7 +103,7 @@ app.get('/ocorrencias/:chave', async (req,res) => {
   res.json(itemResposta).end()
 })
 
-app.get('/ocorrencias/:chave/edit', async (req, res) => {
+app.get('/ocorrencias/edit/:chave', async (req, res) => {
   await db.collection("ocorrencias").item(chave).set({status:"Não resolvido"})
   res.send("Status da Ocorrência alterado!")
 })
