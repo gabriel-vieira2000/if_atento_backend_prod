@@ -85,6 +85,14 @@ app.delete('/:chave', async (req,res) => {
   res.json(item).end()
 })
 
+app.get('ocorrencias/deleta/:chave', async (req,res) => {  
+  const chave = req.params.chave
+  const col = "ocorrencias"
+  const item = await db.collection("ocorrencias").delete(chave, req.body)
+  console.log(JSON.stringify(item, null, 2))
+  res.json(item).end()
+})
+
 app.get('/p', (req,res) => {
   await db.collection("ocorrencias").item(1006).set({status:"Não resolvido"})
   res.send("Status da Ocorrência alterado!")
