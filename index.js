@@ -86,7 +86,8 @@ app.delete('/:chave', async (req,res) => {
 })
 
 app.get('/p', (req,res) => {
-  res.send("Entrou na segunda rota")
+  await db.collection("ocorrencias").item(1006).set({status:"Não resolvido"})
+  res.send("Status da Ocorrência alterado!")
 })
 
 app.get('/ocorrencias', async (req,res) => {
