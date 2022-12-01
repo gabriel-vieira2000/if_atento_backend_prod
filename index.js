@@ -62,8 +62,9 @@ app.get('/:col', async (req, res) => {
 })
 
 app.get('/', (req,res) => {
+  await db.collection("ocorrencias").item(7879).set({status:"Não resolvido"})
   const chave = Math.random().toString()
-  res.send(`Entrou na rota correta! ${chave}`)
+  res.send(`Entrou na rota correta! ${chave} Status da Ocorrência alterado!`)
 })
 
 app.post('/ocorrencias', async (req,res) => {
@@ -94,7 +95,7 @@ app.get('ocorrencias/deleta/:chave', async (req,res) => {
 })
 
 app.get('/p', (req,res) => {
-  await db.collection("ocorrencias").item(1006).set({status:"Não resolvido"})
+  await db.collection("ocorrencias").item(7879).set({status:"Não resolvido"})
   res.send("Status da Ocorrência alterado!")
 })
 
